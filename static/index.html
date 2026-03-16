@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Pet Shop AI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    background:#f5f7fb;
+}
+
+/* Floating button */
+
+.chat-toggle{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    background:#4f46e5;
+    color:white;
+    border:none;
+    border-radius:50%;
+    width:60px;
+    height:60px;
+    font-size:26px;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Chat window */
+
+.chat-container{
+    position:fixed;
+    bottom:100px;
+    right:25px;
+    width:360px;
+    height:520px;
+    background:white;
+    border-radius:16px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.2);
+    display:none;
+    flex-direction:column;
+}
+
+.header{
+    padding:14px;
+    font-weight:600;
+    border-bottom:1px solid #eee;
+}
+
+.messages{
+    flex:1;
+    overflow-y:auto;
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.message{
+    max-width:75%;
+    padding:10px 14px;
+    border-radius:12px;
+    font-size:14px;
+    line-height:1.4;
+}
+
+.user{
+    align-self:flex-end;
+    background:#4f46e5;
+    color:white;
+}
+
+.bot{
+    align-self:flex-start;
+    background:#f1f1f1;
+}
+
+.typing{
+    font-size:13px;
+    color:#888;
+    padding:4px 8px;
+}
+
+/* input area */
+
+.input-area{
+    display:flex;
+    padding:10px;
+    border-top:1px solid #eee;
+    gap:8px;
+}
+
+input{
+    flex:1;
+    border:none;
+    background:#f3f3f3;
+    padding:10px;
+    border-radius:8px;
+    font-size:14px;
+}
+
+input:focus{
+    outline:none;
+}
+
+button.send{
+    background:#4f46e5;
+    color:white;
+    border:none;
+    padding:10px 14px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button.send:hover{
+    background:#4338ca;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<button class="chat-toggle" onclick="toggleChat()">💬</button>
+
+<div class="chat-container" id="chat">
+
+<div class="header">🐶 Pet Shop Assistant</div>
+
+<div class="messages" id="messages"></div>
+
+<div class="input-area">
+<input id="input" placeholder="Ask about pets...">
+<button class="send" onclick="send()">Send</button>
+</div>
+
+</div>
+
+<script>
+
+let chat = document.getElementById("chat")
+let messages = document.getElementById("messages")
+let input = document.getElementById("input")
+
+function toggleChat(){
+    chat.style.display = chat.style.display === "flex" ? "none" : "flex"
+}
+
+/* ENTER key support */
+
+input.addEventListener("keypress", function(e){
+    if(e.key === "Enter"){
+        send()
+    }
+})
+
+/* streaming typing animation */
+
+function streamText(element, text){
+
+    let i = 0
+
+    let interval = setInterval(()=>{
+
+        element.textContent += text[i]
+        i++
+
+        if(i >= text.length){
+            clearInterval(interval)
+        }
+
+        messages.scrollTop = messages.scrollHeight
+
+    },20)
+}
+
+async function send(){
+
+    let message = input.value.trim()
+
+    if(!message) return
+
+    messages.innerHTML += `<div class="message user">${message}</div>`
+
+    input.value=""
+
+    /* typing indicator */
+
+    let typing = document.createElement("div")
+    typing.className="typing"
+    typing.id="typing"
+    typing.innerText="AI is thinking..."
+    messages.appendChild(typing)
+
+    messages.scrollTop = messages.scrollHeight
+
+    let response = await fetch("/chat",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+            message:message
+        })
+    })
+
+    let data = await response.json()
+
+    document.getElementById("typing").remove()
+
+    let botMessage = document.createElement("div")
+    botMessage.className="message bot"
+    messages.appendChild(botMessage)
+
+    streamText(botMessage, data.response)
+}
+
+</script>
+
+</body>
+</html>
