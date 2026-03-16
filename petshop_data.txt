@@ -1,27 +1,76 @@
-Petshop Name: Happy Pets
+# PRODUCT
+Name: Royal Canin Mini Adult
 
-Address:
-Centre Ville Tunis, near the main post office.
+Type: Dog food
 
-Opening Hours:
-Monday to Saturday: 9:00 to 19:00
-Sunday: Closed
+For: Small adult dogs (10 months - 8 years)
 
-Delivery:
-Delivery available in Tunis.
-Price: 7 dinars.
-Delivery time: same day or next day.
+Benefits:
+- Supports healthy digestion
+- Maintains ideal weight
+- High protein formula
 
-Dog Food:
-Royal Canin dog food 3kg costs 25 dinars.
-Pedigree dog food 2kg costs 20 dinars.
+Price: 45 TND
 
-Cat Food:
-Whiskas cat food 1kg costs 12 dinars.
-Friskies cat food 1kg costs 10 dinars.
+Keywords:
+dog food, makla lel kelb, kelb food, small dog food
 
-Accessories:
-We sell collars, toys, cages, litter boxes, and grooming tools.
 
-Services:
-Dog grooming available starting from 30 dinars.
+# PRODUCT
+Name: Pro Plan Puppy
+
+Type: Dog food
+
+For: Puppies under 1 year
+
+Benefits:
+- Supports growth
+- High protein
+- Strengthens immunity
+
+Price: 42 TND
+
+Keywords:
+puppy food, makla lel puppy, sghir kelb food
+
+
+# PRODUCT
+Name: Whiskas Kitten
+
+Type: Cat food
+
+For: Kittens under 12 months
+
+Benefits:
+- Supports healthy growth
+- Rich in protein
+- Vitamins for immunity
+
+Price: 12 TND
+
+Keywords:
+kitten food, makla lel chat sghir, kitten makla
+
+
+# FAQ
+Question: chnowa ahsen makla lel kelb sghir?
+
+Answer:
+Ahsan haja ta3tih makla special lel puppies kif Pro Plan Puppy wala Royal Canin Puppy.
+Fihom nutrition eli y3awn el kelb ykber b sa7a.
+
+
+# FAQ
+Question: chnowa na3ti lel 9attous sghir?
+
+Answer:
+A3tih makla special lel kittens kif Whiskas Kitten wala Royal Canin Kitten.
+Fihom protein w vitamins lel growth.
+
+
+# FAQ
+Question: chnowa na3mel ken el kelb ma yhebch yakel?
+
+Answer:
+Tnajjem tbadlou makla b brand okhra wala ta3tih wet food.
+Barcha kleb y7ebou el wet food akther.

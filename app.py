@@ -7,7 +7,7 @@ from pydantic import BaseModel
 
 # Langchain
 from langchain_community.document_loaders import TextLoader
-from langchain_text_splitters import CharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
 
@@ -43,10 +43,11 @@ langfuse_handler = CallbackHandler()
 
 loader = TextLoader("petshop_data.txt")
 documents = loader.load()
+print("Docs :", documents)
 
-splitter = CharacterTextSplitter(
-    chunk_size=500,
-    chunk_overlap=50
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=350,
+    chunk_overlap=40
 )
 
 docs = splitter.split_documents(documents)
@@ -57,20 +58,30 @@ docs = splitter.split_documents(documents)
 # -------------------------
 
 embeddings = HuggingFaceEmbeddings(
-    model_name="sentence-transformers/all-MiniLM-L6-v2"
+    model_name="BAAI/bge-small-en-v1.5"
 )
 
 vectorstore = FAISS.from_documents(docs, embeddings)
 
-retriever = vectorstore.as_retriever()
+# retriever = vectorstore.as_retriever(    search_type="similarity",
+#     search_kwargs={"k": 3})
 
+retriever = vectorstore.as_retriever(
+    search_type="mmr",
+    search_kwargs={
+        "k": 4,
+        "fetch_k": 10
+    }
+)
+
+print("retrieve: ", retriever)
 
 # -------------------------
 # LLM
 # -------------------------
 
 llm = ChatOpenAI(
-    temperature=0.3,
+    temperature=0,
     model="gpt-4o-mini"
 )
 
@@ -94,6 +105,7 @@ document_chain = create_stuff_documents_chain(
     llm,
     prompt
 )
+
 
 qa_chain = create_retrieval_chain(
     retriever,
