@@ -1,0 +1,27 @@
+Petshop Name: Happy Pets
+
+Address:
+Centre Ville Tunis, near the main post office.
+
+Opening Hours:
+Monday to Saturday: 9:00 to 19:00
+Sunday: Closed
+
+Delivery:
+Delivery available in Tunis.
+Price: 7 dinars.
+Delivery time: same day or next day.
+
+Dog Food:
+Royal Canin dog food 3kg costs 25 dinars.
+Pedigree dog food 2kg costs 20 dinars.
+
+Cat Food:
+Whiskas cat food 1kg costs 12 dinars.
+Friskies cat food 1kg costs 10 dinars.
+
+Accessories:
+We sell collars, toys, cages, litter boxes, and grooming tools.
+
+Services:
+Dog grooming available starting from 30 dinars.
