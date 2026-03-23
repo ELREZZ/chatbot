@@ -8,6 +8,7 @@ langchain-core
 langchain-openai
 langchain-text-splitters
 langchain-classic
+langfuse
 
 faiss-cpu
 sentence-transformers

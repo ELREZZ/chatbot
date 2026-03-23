@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  chatbot:
+    build: .
+    container_name: petshop_chatbot
+    ports:
+      - "8000:8000"
+
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      LANGFUSE_PUBLIC_KEY: ${LANGFUSE_PUBLIC_KEY}
+      LANGFUSE_SECRET_KEY: ${LANGFUSE_SECRET_KEY}
+      LANGFUSE_BASE_URL: ${LANGFUSE_BASE_URL}
+
+    volumes:
+      - .:/app
+
+    restart: unless-stopped
