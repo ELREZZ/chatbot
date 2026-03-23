@@ -1,7 +1,7 @@
 import os
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, PlainTextResponse
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
@@ -26,7 +26,7 @@ import requests
 # ENV
 # -------------------------
 load_dotenv()
-
+VERIFY_TOKEN=os.getenv("VERIFY_TOKEN", "test")
 # -------------------------
 # Langfuse Initialization
 # -------------------------
@@ -162,9 +162,16 @@ def chat(req: ChatRequest):
 
 @app.get("/webhook")
 async def verify(request: Request):
-    if request.query_params.get("hub.verify_token") == "test_petshop":
-        return request.query_params.get("hub.challenge")
-    return "Error"
+    mode = request.query_params.get("hub.mode")
+    token = request.query_params.get("hub.verify_token")
+    challenge = request.query_params.get("hub.challenge")
+
+    if mode and token:
+        if mode == "subscribe" and token == VERIFY_TOKEN:
+            print("WEBHOOK_VERIFIED")
+            return PlainTextResponse(content=challenge, status_code=200)
+        else:
+            return PlainTextResponse("Forbidden", status_code=403)
 
 @app.post("/webhook")
 async def webhook(request: Request):
