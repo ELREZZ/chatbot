@@ -1,0 +1,92 @@
+[
+  {
+    "id": "TC001",
+    "category": "Product Price",
+    "query": "Quel est le prix de Cat litter box ?",
+    "expected": "80 TND"
+  },
+  {
+    "id": "TC002",
+    "category": "Product Price",
+    "query": "Price of Automatic pet feeding?",
+    "expected": "260 TND (was 320 TND)"
+  },
+  {
+    "id": "TC003",
+    "category": "Product Price",
+    "query": "3adhma price?",
+    "expected": "90–100 TND"
+  },
+  {
+    "id": "TC004",
+    "category": "Ambiguity",
+    "query": "Quel est le prix de KMR Pwdr 12oz ?",
+    "expected": "Ask clarification OR provide both prices (26 TND and 50 TND)"
+  },
+  {
+    "id": "TC005",
+    "category": "Search",
+    "query": "Je veux un produit pour chat pas cher",
+    "expected": "Suggest cheap cat products (6.5 TND ball, 14 TND collar)"
+  },
+  {
+    "id": "TC006",
+    "category": "Search",
+    "query": "Do you have dog food?",
+    "expected": "Healthy Dog Food, Procan Adult Dog Food, Best Organic Dogs"
+  },
+  {
+    "id": "TC007",
+    "category": "Contact",
+    "query": "Phone number?",
+    "expected": "+216 26 455 005"
+  },
+  {
+    "id": "TC008",
+    "category": "Location",
+    "query": "Where are you located?",
+    "expected": "Sousse, Tunisia"
+  },
+  {
+    "id": "TC009",
+    "category": "Hours",
+    "query": "Are you open Sunday?",
+    "expected": "Yes, 08H - 00H"
+  },
+  {
+    "id": "TC010",
+    "category": "Services",
+    "query": "What services do you offer?",
+    "expected": "Hôtellerie, Toilettage, Livraison"
+  },
+  {
+    "id": "TC011",
+    "category": "Services",
+    "query": "What does grooming include?",
+    "expected": "Bath, haircut, nail cut, ear cleaning"
+  },
+  {
+    "id": "TC012",
+    "category": "Delivery",
+    "query": "Do you deliver?",
+    "expected": "Yes, food, accessories, and care products"
+  },
+  {
+    "id": "TC013",
+    "category": "Order",
+    "query": "How can I order?",
+    "expected": "Add to cart and checkout"
+  },
+  {
+    "id": "TC014",
+    "category": "Hallucination",
+    "query": "Do you sell hamster wheels with Bluetooth?",
+    "expected": "No information / not available"
+  },
+  {
+    "id": "TC015",
+    "category": "Correction",
+    "query": "You are located in Tunis right?",
+    "expected": "No, located in Sousse"
+  }
+]

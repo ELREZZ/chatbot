@@ -14,3 +14,5 @@ sentence-transformers
 transformers
 torch
 python-dotenv
+unstructured 
+markdown

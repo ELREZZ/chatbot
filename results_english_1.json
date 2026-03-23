@@ -1,0 +1,122 @@
+[
+  {
+    "id": "TC001",
+    "category": "Product Price",
+    "query": "Quel est le prix de Cat litter box ?",
+    "expected": "80 TND",
+    "response": "Cat litter box 3andha prix 80.0 TND au lieu de 99.0 TND, w 3andha remise -19%.",
+    "correct": true
+  },
+  {
+    "id": "TC002",
+    "category": "Product Price",
+    "query": "Price of Automatic pet feeding?",
+    "expected": "260 TND (was 320 TND)",
+    "response": "l produit Automatic pet feeding 3andou prix 260.0 TND au lieu de 320.0 TND, w 3andou remise -19%.",
+    "correct": true
+  },
+  {
+    "id": "TC003",
+    "category": "Product Price",
+    "query": "3adhma price?",
+    "expected": "90–100 TND",
+    "response": "lprix ta3 3adhma ykoun bin 90.0 w 100.0 TND.",
+    "correct": true
+  },
+  {
+    "id": "TC004",
+    "category": "Ambiguity",
+    "query": "Quel est le prix de KMR Pwdr 12oz ?",
+    "expected": "Ask clarification OR provide both prices (26 TND and 50 TND)",
+    "response": "l produit KMR Pwdr 12oz 3andou prix 50.0 TND.",
+    "correct": false
+  },
+  {
+    "id": "TC005",
+    "category": "Search",
+    "query": "Je veux un produit pour chat pas cher",
+    "expected": "Suggest cheap cat products (6.5 TND ball, 14 TND collar)",
+    "response": "3andna chwaya produits pas cher lil chat. Tnajem tji tchoofi, 3andna BALLE DE TENNIS FOR CAT ANIMALIE 3,8 cm à 6.5 TND.",
+    "correct": false
+  },
+  {
+    "id": "TC006",
+    "category": "Search",
+    "query": "Do you have dog food?",
+    "expected": "Healthy Dog Food, Procan Adult Dog Food, Best Organic Dogs",
+    "response": "Ey, 3andna plusieurs produits mta3 nourriture pour chien, ki Healthy Dog Food w Procan Adult Dog Food.",
+    "correct": true
+  },
+  {
+    "id": "TC007",
+    "category": "Contact",
+    "query": "Phone number?",
+    "expected": "+216 26 455 005",
+    "response": "+216 26 455 005.",
+    "correct": true
+  },
+  {
+    "id": "TC008",
+    "category": "Location",
+    "query": "Where are you located?",
+    "expected": "Sousse, Tunisia",
+    "response": "7na mawjoudin fi Sousse, Tunisie.",
+    "correct": true
+  },
+  {
+    "id": "TC009",
+    "category": "Hours",
+    "query": "Are you open Sunday?",
+    "expected": "Yes, 08H - 00H",
+    "response": "ey, 7na ma7loulin dimanche men 08H l 00H.",
+    "correct": true
+  },
+  {
+    "id": "TC010",
+    "category": "Services",
+    "query": "What services do you offer?",
+    "expected": "Hôtellerie, Toilettage, Livraison",
+    "response": "3andna service mta3 pension w soins lel 7ayawenet, w zeda 3andna accessoires w nourriture lil chats w kalb.",
+    "correct": false
+  },
+  {
+    "id": "TC011",
+    "category": "Services",
+    "query": "What does grooming include?",
+    "expected": "Bath, haircut, nail cut, ear cleaning",
+    "response": "Toilettage ykoun fih bain, coupe des poils, coupe des griffes w nettoyage des oreilles.",
+    "correct": true
+  },
+  {
+    "id": "TC012",
+    "category": "Delivery",
+    "query": "Do you deliver?",
+    "expected": "Yes, food, accessories, and care products",
+    "response": "Ey, na3melou livraison 3ala domicile lel ma3loumet, accessoires w soins.",
+    "correct": true
+  },
+  {
+    "id": "TC013",
+    "category": "Order",
+    "query": "How can I order?",
+    "expected": "Add to cart and checkout",
+    "response": "tnajem t3amel commande 3la site mta3na, wila tji lel magasin. 7a9i9a, l'option mta3 commande online hia sahl.",
+    "correct": false
+  },
+  {
+    "id": "TC014",
+    "category": "Hallucination",
+    "query": "Do you sell hamster wheels with Bluetooth?",
+    "expected": "No information / not available",
+    "response": "ma3andich ma3louma 3la hedha taw.",
+    "correct": true
+  },
+  {
+    "id": "TC015",
+    "category": "Correction",
+    "query": "You are located in Tunis right?",
+    "expected": "No, located in Sousse",
+    "response": "ma3andich ma3louma 3la hedha taw. 7na mawjoudin fi Sousse.",
+    "correct": true
+  }
+]

@@ -1,0 +1,146 @@
+[  
+  {
+    "id": "TD001",
+    "category": "Derja Price",
+    "query": "b9adeh cat litter box?",
+    "expected": "80 TND"
+  },
+  {
+    "id": "TD002",
+    "category": "Derja Price",
+    "query": "9adeh soum automatic feeder?",
+    "expected": "260 TND (was 320 TND)"
+  },
+  {
+    "id": "TD003",
+    "category": "Derja Price",
+    "query": "3adhma b9adeh?",
+    "expected": "90–100 TND"
+  },
+  {
+    "id": "TD010",
+    "category": "Derja Search",
+    "query": "nheb haja rkhisa lel 9attous",
+    "expected": "Cheap cat products (ball 6.5 TND, collar 14 TND)"
+  },
+  {
+    "id": "TD011",
+    "category": "Derja Search",
+    "query": "3andkom mekla mta3 kleb?",
+    "expected": "Dog food products"
+  },
+  {
+    "id": "TD012",
+    "category": "Derja Search",
+    "query": "nlawwej 3la haja lel dhfar mta3 cat",
+    "expected": "Cat nail machine"
+  },
+  {
+    "id": "TD020",
+    "category": "Derja Contact",
+    "query": "a3tini num",
+    "expected": "+216 26 455 005"
+  },
+  {
+    "id": "TD021",
+    "category": "Derja Location",
+    "query": "win mawjoudin?",
+    "expected": "Sousse, Tunisia"
+  },
+  {
+    "id": "TD022",
+    "category": "Derja Hours",
+    "query": "wa9tech ta7lou?",
+    "expected": "08H - 00H"
+  },
+  {
+    "id": "TD023",
+    "category": "Derja Hours",
+    "query": "maftou7in nhar el 7ad?",
+    "expected": "Yes"
+  },
+  {
+    "id": "TD030",
+    "category": "Derja Services",
+    "query": "3andkom toilettage?",
+    "expected": "Yes + grooming details"
+  },
+  {
+    "id": "TD031",
+    "category": "Derja Services",
+    "query": "najem nkhali 7ayawni 3andkom?",
+    "expected": "Yes, hotel service"
+  },
+  {
+    "id": "TD032",
+    "category": "Derja Delivery",
+    "query": "twaslou l dar?",
+    "expected": "Yes"
+  },
+  {
+    "id": "TD033",
+    "category": "Derja Delivery",
+    "query": "twaslou chnowa bel dhabet?",
+    "expected": "Food, accessories, care products"
+  },
+  {
+    "id": "TD040",
+    "category": "Derja Order",
+    "query": "kifeh nechri?",
+    "expected": "Add to cart and checkout"
+  },
+  {
+    "id": "TD050",
+    "category": "Derja Category",
+    "query": "3andkom hajet lel 3asfour?",
+    "expected": "Bird products"
+  },
+  {
+    "id": "TD051",
+    "category": "Derja Category",
+    "query": "3andkom hajet lel 7out?",
+    "expected": "Fish products"
+  },
+  {
+    "id": "TD052",
+    "category": "Derja Category",
+    "query": "3andkom hajet lel hamster?",
+    "expected": "Rodent products"
+  },
+  {
+    "id": "TD060",
+    "category": "Derja Ambiguity",
+    "query": "KMR b9adeh?",
+    "expected": "Clarify or provide both prices"
+  },
+  {
+    "id": "TD061",
+    "category": "Derja Correction",
+    "query": "cat litter box b 20 dinar s7i7?",
+    "expected": "No, 80 TND"
+  },
+  {
+    "id": "TD062",
+    "category": "Derja Hallucination",
+    "query": "3andkom robot yla3eb m3a l 9attous?",
+    "expected": "Not available"
+  },
+  {
+    "id": "TD070",
+    "category": "Derja Multi-turn",
+    "query": "3andkom hajet lel 9attous? chnowa arkhes haja?",
+    "expected": "Cheapest cat products"
+  },
+  {
+    "id": "TD080",
+    "category": "Code-switch",
+    "query": "do you 3andkom delivery?",
+    "expected": "Yes"
+  },
+  {
+    "id": "TD081",
+    "category": "Code-switch",
+    "query": "prix mta3 dog food?",
+    "expected": "Dog food prices"
+  }
+]

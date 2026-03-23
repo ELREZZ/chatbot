@@ -1,0 +1,194 @@
+[
+  {
+    "id": "TD001",
+    "category": "Derja Price",
+    "query": "b9adeh cat litter box?",
+    "expected": "80 TND",
+    "response": "Cat litter box 3andha prix 80.0 TND, kanet 99.0 TND w 3andha remise -19%.",
+    "correct": true
+  },
+  {
+    "id": "TD002",
+    "category": "Derja Price",
+    "query": "9adeh soum automatic feeder?",
+    "expected": "260 TND (was 320 TND)",
+    "response": "l prix ta3 automatic feeder 7asb llisting 3andna, ma3andich ma3louma 3la soum dhabt. tnajem tji tchaouf.",
+    "correct": false
+  },
+  {
+    "id": "TD003",
+    "category": "Derja Price",
+    "query": "3adhma b9adeh?",
+    "expected": "90–100 TND",
+    "response": "3adhma b9adeh 90 TND l 100 TND.",
+    "correct": true
+  },
+  {
+    "id": "TD010",
+    "category": "Derja Search",
+    "query": "nheb haja rkhisa lel 9attous",
+    "expected": "Cheap cat products (ball 6.5 TND, collar 14 TND)",
+    "response": "3andna 3adhma rkhisa lel 9attous, lprix mta3ha bin 90.0 TND w 100.0 TND. tnajem tji tchoofha!",
+    "correct": false
+  },
+  {
+    "id": "TD011",
+    "category": "Derja Search",
+    "query": "3andkom mekla mta3 kleb?",
+    "expected": "Dog food products",
+    "response": "Ey, 3andna mekla mta3 kleb, tnajem tji tchoof les options li 3andna.",
+    "correct": true
+  },
+  {
+    "id": "TD012",
+    "category": "Derja Search",
+    "query": "nlawwej 3la haja lel dhfar mta3 cat",
+    "expected": "Cat nail machine",
+    "response": "3andna chwaya 7aja lel dhfar mta3 cat. Tnajem tji tchoofi loptions li 3andna.",
+    "correct": false
+  },
+  {
+    "id": "TD020",
+    "category": "Derja Contact",
+    "query": "a3tini num",
+    "expected": "+216 26 455 005",
+    "response": "nجموا tcallouna 3la +216 26 455 005.",
+    "correct": true
+  },
+  {
+    "id": "TD021",
+    "category": "Derja Location",
+    "query": "win mawjoudin?",
+    "expected": "Sousse, Tunisia",
+    "response": "l magasin mawjoud fi Sousse, Tunisie.",
+    "correct": true
+  },
+  {
+    "id": "TD022",
+    "category": "Derja Hours",
+    "query": "wa9tech ta7lou?",
+    "expected": "08H - 00H",
+    "response": "ma3andich ma3louma 3la hedha taw.",
+    "correct": false
+  },
+  {
+    "id": "TD023",
+    "category": "Derja Hours",
+    "query": "maftou7in nhar el 7ad?",
+    "expected": "Yes",
+    "response": "ey, ahna maftou7in nhar el 7ad men 8h l 12h w men 16h l 00h. tnajem tji w t3awdna!",
+    "correct": true
+  },
+  {
+    "id": "TD030",
+    "category": "Derja Services",
+    "query": "3andkom toilettage?",
+    "expected": "Yes + grooming details",
+    "response": "Ey, 3andna toilettage! Ykoun fi bain, coupe des poils, coupe des griffes w nettoyage des oreilles. 7abeb tji t3arref 3la lprix?",
+    "correct": true
+  },
+  {
+    "id": "TD031",
+    "category": "Derja Services",
+    "query": "najem nkhali 7ayawni 3andkom?",
+    "expected": "Yes, hotel service",
+    "response": "Ey, 3andna service d’hôtellerie mta3 7ayawen, 3andna espace confortable w sécurisé, w n3tihom attention kol youm.",
+    "correct": true
+  },
+  {
+    "id": "TD032",
+    "category": "Derja Delivery",
+    "query": "twaslou l dar?",
+    "expected": "Yes",
+    "response": "ma3andich ma3louma 3la hedha taw.",
+    "correct": false
+  },
+  {
+    "id": "TD033",
+    "category": "Derja Delivery",
+    "query": "twaslou chnowa bel dhabet?",
+    "expected": "Food, accessories, care products",
+    "response": "3andna hôtellerie w toilettage. l hôtellerie t3ti l 7ayawan espace confortable w sécurisé, w toilettage 3andna produits mta3 soins w accessoires. 7ayawanek yestahal l a7san!",
+    "correct": false
+  },
+  {
+    "id": "TD040",
+    "category": "Derja Order",
+    "query": "kifeh nechri?",
+    "expected": "Add to cart and checkout",
+    "response": "tnejem tji lel magasin w tchoof les produits, ou 3andna site online ken t7eb teshri men 3andna.",
+    "correct": false
+  },
+  {
+    "id": "TD050",
+    "category": "Derja Category",
+    "query": "3andkom hajet lel 3asfour?",
+    "expected": "Bird products",
+    "response": "ma3andich ma3louma 3la hedha taw.",
+    "correct": false
+  },
+  {
+    "id": "TD051",
+    "category": "Derja Category",
+    "query": "3andkom hajet lel 7out?",
+    "expected": "Fish products",
+    "response": "ma3andich ma3louma 3la hedha taw.",
+    "correct": false
+  },
+  {
+    "id": "TD052",
+    "category": "Derja Category",
+    "query": "3andkom hajet lel hamster?",
+    "expected": "Rodent products",
+    "response": "ey, 3andna 3adhma lel hamster w chwaya accessoires. tnajem tji tchoofhom!",
+    "correct": true
+  },
+  {
+    "id": "TD060",
+    "category": "Derja Ambiguity",
+    "query": "KMR b9adeh?",
+    "expected": "Clarify or provide both prices",
+    "response": "KMR Pwdr 12oz b26.0 TND, ma3a remise -19%.",
+    "correct": false
+  },
+  {
+    "id": "TD061",
+    "category": "Derja Correction",
+    "query": "cat litter box b 20 dinar s7i7?",
+    "expected": "No, 80 TND",
+    "response": "ma3andich ma3louma 3la hedha taw. lprix ta3 Cat litter box houwa 80.0 TND.",
+    "correct": true
+  },
+  {
+    "id": "TD062",
+    "category": "Derja Hallucination",
+    "query": "3andkom robot yla3eb m3a l 9attous?",
+    "expected": "Not available",
+    "response": "ma3andich ma3louma 3la hedha taw.",
+    "correct": true
+  },
+  {
+    "id": "TD070",
+    "category": "Derja Multi-turn",
+    "query": "3andkom hajet lel 9attous? chnowa arkhes haja?",
+    "expected": "Cheapest cat products",
+    "response": "ey 3andna chwaya hajet lel 9attous. larkhes haja hiya BALLE DE TENIIS FOR CAT ANIMALIE 3,8 cm li tji 6.5 TND. tnajem tji tchoofi!",
+    "correct": true
+  },
+  {
+    "id": "TD080",
+    "category": "Code-switch",
+    "query": "do you 3andkom delivery?",
+    "expected": "Yes",
+    "response": "ey, 3andna service de livraison à domicile. tnajem t7a9i9 les produits li 7ayawnek 3andkom.",
+    "correct": true
+  },
+  {
+    "id": "TD081",
+    "category": "Code-switch",
+    "query": "prix mta3 dog food?",
+    "expected": "Dog food prices",
+    "response": "lprix ta3 Healthy Dog Food huwa 26.0 TND (was 32.0 TND) w Procan Adult Dog Food huwa 40.0 TND.",
+    "correct": true
+  }
+]
