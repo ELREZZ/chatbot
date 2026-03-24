@@ -86,14 +86,13 @@ Support:
 - Phone: +216 26 455 005
 
 ---
-
 ## Products Catalog
 
 ### Product: 3adhma
 - Price: 90 → 100 TND
 - Category: Accessoire / Nourriture
 - Description: Produit pour animaux (os ou friandise selon disponibilité)
-- Link: https://demo.miralprod.tn/shop
+- Link: https://demo.miralprod.tn/product/3adhma
 - Availability: In stock
 
 ---
@@ -104,7 +103,7 @@ Support:
 - Discount: -19%
 - Category: Feeding
 - Description: Distributeur automatique de nourriture pour animaux
-- Link: https://demo.miralprod.tn/shop
+- Link: https://demo.miralprod.tn/product/automatic-pet-feeding
 - Availability: In stock
 
 ---
@@ -113,7 +112,7 @@ Support:
 - Price: 6.5 TND
 - Category: Jouet chat
 - Description: Balle de jeu pour chat
-- Link: https://demo.miralprod.tn/shop
+- Link: https://demo.miralprod.tn/product/balle-tennis-cat-animalie-3-8cm
 - Availability: In stock
 
 ---
@@ -122,7 +121,7 @@ Support:
 - Price: 102 TND
 - Category: Nourriture chien
 - Description: Alimentation premium pour chiens
-- Link: https://demo.miralprod.tn/shop
+- Link: https://demo.miralprod.tn/product/best-organic-dogs
 - Availability: In stock
 
 ---
@@ -133,7 +132,7 @@ Support:
 - Discount: -15%
 - Category: Nourriture
 - Description: Nourriture bio pour animaux
-- Link: https://demo.miralprod.tn/shop
+- Link: https://demo.miralprod.tn/product/best-organic-feeds
 - Availability: In stock
 
 ---
@@ -144,7 +143,7 @@ Support:
 - Discount: -8%
 - Category: Accessoire chat
 - Description: Cage de séchage pour chat
-- Link: https://demo.miralprod.tn/shop
+- Link: https://demo.miralprod.tn/product/cat-drying-cage
 - Availability: In stock
 
 ---
@@ -155,7 +154,7 @@ Support:
 - Discount: -19%
 - Category: Hygiène chat
 - Description: Bac à litière pour chat
-- Link: https://demo.miralprod.tn/shop
+- Link: https://demo.miralprod.tn/product/cat-litter-box
 - Availability: In stock
 
 ---
@@ -166,7 +165,7 @@ Support:
 - Discount: -23%
 - Category: Soin chat
 - Description: Appareil pour entretenir les griffes du chat
-- Link: https://demo.miralprod.tn/shop
+- Link: https://demo.miralprod.tn/product/cat-nail-machine
 - Availability: In stock
 
 ---
@@ -177,7 +176,7 @@ Support:
 - Discount: -26%
 - Category: Accessoire chat
 - Description: Collier pour chat
-- Link: https://demo.miralprod.tn/shop
+- Link: https://demo.miralprod.tn/product/collier-chat-catmania-jaune
 - Availability: In stock
 
 ---
@@ -186,7 +185,7 @@ Support:
 - Price: 15 TND
 - Category: Nourriture
 - Description: Produit alimentaire pour animaux
-- Link: https://demo.miralprod.tn/shop
+- Link: https://demo.miralprod.tn/product/green-papaya-fruit
 - Availability: In stock
 
 ---
@@ -197,7 +196,7 @@ Support:
 - Discount: -19%
 - Category: Nourriture chien
 - Description: Nourriture équilibrée pour chien
-- Link: https://demo.miralprod.tn/shop
+- Link: https://demo.miralprod.tn/product/healthy-dog-food
 - Availability: In stock
 
 ---
@@ -209,7 +208,7 @@ Support:
 - Category: Nourriture
 - Description: Lait en poudre pour animaux
 - Note: ancienne variation observée (50 TND), prix actuel utilisé
-- Link: https://demo.miralprod.tn/shop
+- Link: https://demo.miralprod.tn/product/kmr-pwdr-12oz
 - Availability: In stock
 
 ---
@@ -218,7 +217,7 @@ Support:
 - Price: 40 TND
 - Category: Nourriture chien
 - Description: Croquettes pour chien adulte
-- Link: https://demo.miralprod.tn/shop
+- Link: https://demo.miralprod.tn/product/procan-adult-dog-food
 - Availability: In stock
 
 ---
