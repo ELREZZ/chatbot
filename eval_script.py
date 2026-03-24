@@ -180,6 +180,6 @@ if __name__ == "__main__":
     print("Accuracy:", round(metrics["accuracy"], 3))
     print("By Category:", metrics["by_category"])
 
-    save_results(results)
+    save_results(results, DATASET_PATH)
 
     print("\n✅ Results saved to results.json")
