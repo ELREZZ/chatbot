@@ -17,6 +17,7 @@ from langchain_classic.chains.combine_documents import create_stuff_documents_ch
 from langchain_core.chat_history import InMemoryChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_classic.chains import create_retrieval_chain
+from langchain_core.prompts import MessagesPlaceholder
 
 # Langfuse
 from langfuse import Langfuse
@@ -66,7 +67,7 @@ splitter = RecursiveCharacterTextSplitter(
 
 docs = splitter.split_documents(documents)
 
-logger.info("KB chunks loaded:", len(docs))
+logger.info(f"KB chunks loaded: {len(docs)}")
 
 
 # -------------------------
@@ -104,6 +105,7 @@ store = {}
 def get_session_history(session_id: str):
     if session_id not in store:
         store[session_id] = InMemoryChatMessageHistory()
+        logger.info("new session_history created")
     return store[session_id]
 
 # -------------------------
@@ -117,14 +119,12 @@ def original_build_chain():
         cache_ttl_seconds=0
     )
 
-    logger.info("Using prompt version:", langfuse_prompt.version)
-
+    logger.info(f"Using prompt version: {langfuse_prompt.version}")
     prompt = ChatPromptTemplate.from_messages([
         ("system", langfuse_prompt.get_langchain_prompt()),
-        ("placeholder", "{chat_history}"),  # 🔥 REQUIRED FOR MEMORY
+        MessagesPlaceholder(variable_name="chat_history"),  # ✅ CORRECT
         ("human", "{input}")
     ])
-
     document_chain = create_stuff_documents_chain(
         llm,
         prompt
@@ -145,8 +145,9 @@ def build_chain():
     chain_with_memory = RunnableWithMessageHistory(
         qa_chain,
         get_session_history,
-        input_messages_key="input",          # must match your invoke key
-        history_messages_key="chat_history", # must match your prompt
+        input_messages_key="input",
+        history_messages_key="chat_history",
+        output_messages_key="answer",  # ✅ CRITICAL FIX
     )
 
     return chain_with_memory, langfuse_prompt
