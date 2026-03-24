@@ -23,6 +23,11 @@ from langfuse.langchain import CallbackHandler
 import httpx
 import requests
 
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 # -------------------------
 # ENV
 # -------------------------
@@ -59,7 +64,7 @@ splitter = RecursiveCharacterTextSplitter(
 
 docs = splitter.split_documents(documents)
 
-print("KB chunks loaded:", len(docs))
+logger.info("KB chunks loaded:", len(docs))
 
 
 # -------------------------
@@ -80,7 +85,7 @@ retriever = vectorstore.as_retriever(
     }
 )
 
-print("Retriever ready")
+logger.info("Retriever ready")
 
 
 # -------------------------
@@ -104,7 +109,7 @@ def build_chain():
         cache_ttl_seconds=0
     )
 
-    print("Using prompt version:", langfuse_prompt.version)
+    logger.info("Using prompt version:", langfuse_prompt.version)
 
     prompt = ChatPromptTemplate.from_template(
         langfuse_prompt.get_langchain_prompt()
@@ -175,7 +180,8 @@ async def verify(request: Request):
 
     if mode and token:
         if mode == "subscribe" and token == VERIFY_TOKEN:
-            print("WEBHOOK_VERIFIED")
+            
+            logger.info("WEBHOOK_VERIFIED")
             return PlainTextResponse(content=challenge, status_code=200)
         else:
             return PlainTextResponse("Forbidden", status_code=403)
@@ -193,7 +199,7 @@ async def send_message(psid: str, text: str):
 
     async with httpx.AsyncClient() as client:
         response = await client.post(GRAPH_API_URL, json=payload, params=params)
-        print("SEND API RESPONSE:", response.text)
+        logger.info(f"SEND API RESPONSE: {response.text}")
 
 
 
@@ -201,8 +207,7 @@ async def send_message(psid: str, text: str):
 async def webhook(request: Request):
     data = await request.json()
 
-    print("EVENT_RECEIVED:", data)
-
+    logger.info(f"EVENT_RECEIVED: {data}")
     if data.get("object") == "page":
         for entry in data.get("entry", []):
             for messaging in entry.get("messaging", []):
@@ -212,9 +217,10 @@ async def webhook(request: Request):
 
                 if message and sender_id:
                     user_text = message.get("text", "")
+                    
+                    logger.info(f"USER MESSAGE:, {user_text}")
+                    logger.info(f"PSID: {sender_id}")
 
-                    print("USER MESSAGE:", user_text)
-                    print("PSID:", sender_id)
                     # 🤖 Generate AI response
                     bot_reply = generate_response(user_text)
 
