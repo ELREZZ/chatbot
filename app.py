@@ -247,7 +247,7 @@ async def webhook(request: Request):
                     logger.info(f"PSID: {sender_id}")
 
                     # 🤖 Generate AI response
-                    bot_reply = generate_response(user_text)
+                    bot_reply = generate_response(user_text, sender_id)
 
                     # 🔁 Reply
                     await send_message(sender_id, bot_reply)
