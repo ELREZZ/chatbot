@@ -140,17 +140,12 @@ def read_root():
     return FileResponse("static/index.html")
 
 
-# -------------------------
-# Chat Endpoint
-# -------------------------
-@app.post("/chat")
-def chat(req: ChatRequest):
-
+def generate_response(user_message: str) -> str:
     qa_chain, langfuse_prompt = build_chain()
 
     response = qa_chain.invoke(
         {
-            "input": req.message
+            "input": user_message
         },
         config={
             "callbacks": [langfuse_handler],
@@ -162,10 +157,15 @@ def chat(req: ChatRequest):
         }
     )
 
-    return {
-        "response": response["answer"]
-    }
+    return response["answer"]
 
+# -------------------------
+# Chat Endpoint
+# -------------------------
+@app.post("/chat")
+async def chat(req: ChatRequest):
+    answer = generate_response(req.message)
+    return {"response": answer}
 
 @app.get("/webhook")
 async def verify(request: Request):
@@ -215,8 +215,10 @@ async def webhook(request: Request):
 
                     print("USER MESSAGE:", user_text)
                     print("PSID:", sender_id)
+                    # 🤖 Generate AI response
+                    bot_reply = generate_response(user_text)
 
                     # 🔁 Reply
-                    await send_message(sender_id, f"You said: {user_text}")
+                    await send_message(sender_id, bot_reply)
 
     return PlainTextResponse("EVENT_RECEIVED", status_code=200)
