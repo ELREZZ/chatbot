@@ -176,5 +176,17 @@ async def verify(request: Request):
 @app.post("/webhook")
 async def webhook(request: Request):
     data = await request.json()
-    print(data)
-    return {"status": "ok"}
+
+    # Log full payload
+    print("EVENT_RECEIVED:", data)
+
+    # Extract message safely
+    if data.get("object") == "page":
+        for entry in data.get("entry", []):
+            for messaging in entry.get("messaging", []):
+                message = messaging.get("message")
+
+                if message:
+                    print("TEST_MESSAGE:", message)
+
+    return PlainTextResponse("EVENT_RECEIVED", status_code=200)
