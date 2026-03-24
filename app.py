@@ -20,6 +20,7 @@ from langchain_classic.chains.combine_documents import create_stuff_documents_ch
 from langfuse import Langfuse
 from langfuse.langchain import CallbackHandler
 
+import httpx
 import requests
 
 # -------------------------
@@ -27,6 +28,12 @@ import requests
 # -------------------------
 load_dotenv()
 VERIFY_TOKEN=os.getenv("VERIFY_TOKEN", "test")
+PAGE_ID = os.getenv("PAGE_ID",1072166595975279)
+PAGE_ACCESS_TOKEN = os.getenv("PAGE_ACCESS_TOKEN")
+
+GRAPH_API_URL = f"https://graph.facebook.com/v25.0/{PAGE_ID}/messages"
+
+
 # -------------------------
 # Langfuse Initialization
 # -------------------------
@@ -173,20 +180,43 @@ async def verify(request: Request):
         else:
             return PlainTextResponse("Forbidden", status_code=403)
 
+async def send_message(psid: str, text: str):
+    payload = {
+        "recipient": {"id": psid},
+        "messaging_type": "RESPONSE",
+        "message": {"text": text}
+    }
+
+    params = {
+        "access_token": PAGE_ACCESS_TOKEN
+    }
+
+    async with httpx.AsyncClient() as client:
+        response = await client.post(GRAPH_API_URL, json=payload, params=params)
+        print("SEND API RESPONSE:", response.text)
+
+
+
 @app.post("/webhook")
 async def webhook(request: Request):
     data = await request.json()
 
-    # Log full payload
     print("EVENT_RECEIVED:", data)
 
-    # Extract message safely
     if data.get("object") == "page":
         for entry in data.get("entry", []):
             for messaging in entry.get("messaging", []):
+
+                sender_id = messaging.get("sender", {}).get("id")  # ✅ PSID
                 message = messaging.get("message")
 
-                if message:
-                    print("TEST_MESSAGE:", message)
+                if message and sender_id:
+                    user_text = message.get("text", "")
+
+                    print("USER MESSAGE:", user_text)
+                    print("PSID:", sender_id)
+
+                    # 🔁 Reply
+                    await send_message(sender_id, f"You said: {user_text}")
 
     return PlainTextResponse("EVENT_RECEIVED", status_code=200)
