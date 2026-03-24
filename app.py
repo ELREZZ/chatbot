@@ -13,8 +13,10 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 
-from langchain_classic.chains import create_retrieval_chain
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
+from langchain_core.chat_history import InMemoryChatMessageHistory
+from langchain_core.runnables.history import RunnableWithMessageHistory
+from langchain_classic.chains import create_retrieval_chain
 
 # Langfuse
 from langfuse import Langfuse
@@ -97,12 +99,18 @@ llm = ChatOpenAI(
 )
 
 
+store = {}
+
+def get_session_history(session_id: str):
+    if session_id not in store:
+        store[session_id] = InMemoryChatMessageHistory()
+    return store[session_id]
+
 # -------------------------
 # Build Chain Dynamically
 # -------------------------
-def build_chain():
+def original_build_chain():
 
-    # Fetch latest prompt from Langfuse
     langfuse_prompt = langfuse.get_prompt(
         "petshop-chatbot-prompt",
         label="production",
@@ -111,21 +119,38 @@ def build_chain():
 
     logger.info("Using prompt version:", langfuse_prompt.version)
 
-    prompt = ChatPromptTemplate.from_template(
-        langfuse_prompt.get_langchain_prompt()
-    )
+    prompt = ChatPromptTemplate.from_messages([
+        ("system", langfuse_prompt.get_langchain_prompt()),
+        ("placeholder", "{chat_history}"),  # 🔥 REQUIRED FOR MEMORY
+        ("human", "{input}")
+    ])
 
     document_chain = create_stuff_documents_chain(
         llm,
         prompt
     )
 
+    # ✅ NEW STYLE retrieval chain
     qa_chain = create_retrieval_chain(
         retriever,
         document_chain
     )
 
     return qa_chain, langfuse_prompt
+
+
+def build_chain():
+    qa_chain, langfuse_prompt = original_build_chain()  # your existing logic
+
+    chain_with_memory = RunnableWithMessageHistory(
+        qa_chain,
+        get_session_history,
+        input_messages_key="input",          # must match your invoke key
+        history_messages_key="chat_history", # must match your prompt
+    )
+
+    return chain_with_memory, langfuse_prompt
+
 
 
 # -------------------------
@@ -144,15 +169,15 @@ class ChatRequest(BaseModel):
 def read_root():
     return FileResponse("static/index.html")
 
-
-def generate_response(user_message: str) -> str:
+def generate_response(user_message: str, session_id: str) -> str:
     qa_chain, langfuse_prompt = build_chain()
 
     response = qa_chain.invoke(
-        {
-            "input": user_message
-        },
+        {"input": user_message},
         config={
+            "configurable": {
+                "session_id": session_id  # 🔥 THIS ENABLES MEMORY
+            },
             "callbacks": [langfuse_handler],
             "metadata": {
                 "app": "petshop-chatbot",
@@ -163,13 +188,12 @@ def generate_response(user_message: str) -> str:
     )
 
     return response["answer"]
-
 # -------------------------
 # Chat Endpoint
 # -------------------------
 @app.post("/chat")
 async def chat(req: ChatRequest):
-    answer = generate_response(req.message)
+    answer = generate_response(req.message, session_id="default-user")
     return {"response": answer}
 
 @app.get("/webhook")
